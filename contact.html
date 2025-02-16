@@ -12,13 +12,13 @@
       content="Pet Haven || Pet Care Services HTML Template"
     />
 
-    <title>Pet Haven</title>
+    <title>Strlight venture </title>
 
     <!-- Favicon -->
     <link
       rel="shortcut icon"
       type="image/x-icon"
-      href="assets/media/favicon.png"
+      href="assets/media/logo1.png"
     />
 
     <!-- All CSS files -->
@@ -435,6 +435,24 @@
         </div>
       </div>
     </form>
+      <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        fetch(this.action, {
+            method: this.method,
+            body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                alert("✅ Message sent successfully!");
+                this.reset(); // Clear form after successful submission
+            } else {
+                alert("❌ Error sending message.");
+            }
+        }).catch(error => alert("⚠️ Something went wrong."));
+    });
+</script>
       <!-- Contact Wrapper End -->
 
       <!-- FOOTER START -->
@@ -589,8 +607,6 @@
           <div class="bottom-bar text-center">
             <p class="medium-black">
               @2024 All Rights Copyright
-              <a href="" class="fw-700 color-sec"> Pet Haven.</a> Design &
-              Developed By UIPARADOX.
             </p>
           </div>
         </div>
